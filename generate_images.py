@@ -107,6 +107,7 @@ async def main() -> None:
     if user is None:
         raise RuntimeError("Environment variable GITHUB_ACTOR must be set.")
     exclude_repos = os.getenv("EXCLUDED")
+    print(exclude_repos)
     excluded_repos = (
         {x.strip() for x in exclude_repos.split(",")} if exclude_repos else None
     )
@@ -134,3 +135,4 @@ async def main() -> None:
 
 if __name__ == "__main__":
     asyncio.run(main())
+
